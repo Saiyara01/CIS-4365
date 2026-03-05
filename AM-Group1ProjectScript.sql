@@ -1,2 +1,2 @@
 -- Insert all the SQL Scripts here part of requirement
--- Make sure to push and pull the latest git update
+-- Make sure to COMMIT ALL update
