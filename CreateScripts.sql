@@ -1,15 +1,13 @@
--- Insert all the SQL Scripts here part of requirement
--- Make sure to COMMIT ALL updates
+-- CREATE Scripts for all tables
 
--- Author: Saiyara, Izzy
-
--- =============================================================
+-- ==========================================================================================================================
 -- Create independent tables
 -- LoyaltyProgram table
 CREATE TABLE LoyaltyProgram (
-    LOYALTY_ID      INT             AUTO_INCREMENT PRIMARY KEY,
-    LOYALTY_POINTS  INT             NOT NULL    DEFAULT 0,
-    LOYALTY_TIER    VARCHAR(20)     NOT NULL
+    LOYALTY_ID              INT             AUTO_INCREMENT PRIMARY KEY,
+    LOYALTY_TIER            VARCHAR(20)     NOT NULL,
+    LOYALTY_POINTS_MIN      INT             NOT NULL,
+    LOYALTY_POINTS_MAX      INT
 );
 
 -- ProductCategory table
@@ -86,7 +84,7 @@ CREATE TABLE Holiday (
     HOLIDAY_END_DATE    DATE            NOT NULL
 );
 
--- =============================================================
+-- ==========================================================================================================================
 -- Create tables dependent on independents
 -- Role table (depends on Department)
 CREATE TABLE Role (
@@ -176,7 +174,7 @@ CREATE TABLE ProductPromotion (
     FOREIGN KEY (PROMOTION_ID) REFERENCES Promotion(PROMOTION_ID)
 );
 
--- =============================================================
+-- ==========================================================================================================================
 -- Create table dependent on those above
 -- SalesReport (no FK dependencies, but Order depends on it)
 CREATE TABLE SalesReport (
@@ -315,7 +313,7 @@ CREATE TABLE HolidayProductSales (
 );
 
 
--- =============================================================
+-- ==========================================================================================================================
 -- OrderLine (depends on Order, Product)
 -- Associative Entity [Order:Product]
 CREATE TABLE OrderLine (
@@ -339,6 +337,3 @@ CREATE TABLE OrderAssignment (
     FOREIGN KEY (ORDER_ID)  REFERENCES `Order`(ORDER_ID),
     FOREIGN KEY (EMP_CODE)  REFERENCES Employee(EMP_CODE)
 );
-
-
-
