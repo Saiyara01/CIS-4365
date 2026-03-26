@@ -74,6 +74,12 @@ CREATE TABLE PRODUCTCATEGORY (
     PCATEGORY_END_DATE DATE
 );
 
+
+-- Laura: Created Department table
+CREATE TABLE Department (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(100)
+);
 -- Create Event table with Event_ID as PK
 CREATE TABLE EVENT (
     EVENT_ID INT PRIMARY KEY,
