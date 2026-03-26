@@ -74,8 +74,57 @@ CREATE TABLE PRODUCTCATEGORY (
     PCATEGORY_END_DATE DATE
 );
 
+
 -- Laura: Created Department table
 CREATE TABLE Department (
     DepartmentID INT PRIMARY KEY,
     DepartmentName VARCHAR(100)
 );
+-- Create Event table with Event_ID as PK
+CREATE TABLE EVENT (
+    EVENT_ID INT PRIMARY KEY,
+    EVENT_NAME VARCHAR(150),
+    EVENT_DATE DATE,
+    EVENT_TIME TIME,
+    EVENT_LOCATION VARCHAR(255),
+    EVENT_TYPE VARCHAR(100),
+    EVENT_DESC VARCHAR(200)
+);
+
+-- Event data values 
+INSERT INTO EVENT VALUES
+(1, 'Wedding Catering', '2024-11-10', '17:00:00', 'Houston Hall', 'Wedding', 'Large wedding event'),
+(2, 'Birthday Party', '2024-11-12', '15:00:00', 'Private Home', 'Birthday', 'Kids birthday party'),
+(3, 'Corporate Meeting', '2024-11-15', '10:00:00', 'Downtown Office', 'Corporate', 'Business catering'),
+(4, 'Anniversary Dinner', '2024-11-18', '19:00:00', 'Restaurant Hall', 'Anniversary', 'Family celebration'),
+(5, 'Baby Shower', '2024-11-20', '14:00:00', 'Community Center', 'Shower', 'Baby shower event'),
+(6, 'Graduation Party', '2024-11-22', '18:00:00', 'Event Center', 'Graduation', 'College graduation'),
+(7, 'Holiday Party', '2024-12-01', '20:00:00', 'Hotel Ballroom', 'Holiday', 'Company holiday party'),
+(8, 'Engagement Party', '2024-12-03', '17:30:00', 'Garden Venue', 'Engagement', 'Engagement celebration'),
+(9, 'Office Lunch', '2024-12-05', '12:00:00', 'Office Space', 'Corporate', 'Team lunch event'),
+(10, 'Fundraiser', '2024-12-08', '19:30:00', 'Charity Hall', 'Charity', 'Fundraising dinner');
+
+-- Table AllergyInfo; Allergy_ID as PK
+
+CREATE TABLE ALLERGYINFO (
+    ALLERGY_ID INT PRIMARY KEY,
+    ALLERGY_NAME VARCHAR(100),
+    ALLERGY_DESC VARCHAR(200),
+    ALLERGY_TYPE VARCHAR(100),
+    ALLERGY_CONTENT VARCHAR(100),
+    ALLERGY_REACTION VARCHAR(255)
+);
+
+-- Sample data for AllergyInfo table
+INSERT INTO ALLERGYINFO VALUES
+(1, 'Peanut Allergy', 'Allergy to peanuts', 'Food', 'Peanuts', 'Swelling, hives'),
+(2, 'Dairy Allergy', 'Allergy to milk products', 'Food', 'Milk', 'Stomach pain, rash'),
+(3, 'Gluten Allergy', 'Allergy to gluten', 'Food', 'Wheat', 'Digestive issues'),
+(4, 'Egg Allergy', 'Allergy to eggs', 'Food', 'Egg protein', 'Skin rash'),
+(5, 'Soy Allergy', 'Allergy to soy products', 'Food', 'Soy', 'Nausea'),
+(6, 'Tree Nut Allergy', 'Allergy to tree nuts', 'Food', 'Almonds, walnuts', 'Swelling'),
+(7, 'Shellfish Allergy', 'Allergy to seafood', 'Food', 'Shrimp, crab', 'Breathing issues'),
+(8, 'Sesame Sensitivity', 'Reaction to sesame seeds', 'Food', 'Sesame', 'Swelling'),
+(9, 'Wheat Allergy', 'Allergy to Wheat products', 'Food', 'Wheat', 'Digestive Issues'),
+(10, 'Artificial Color Allergy', 'Reaction to food dyes', 'Additive', 'Food coloring', 'Hyperactivity');
+
