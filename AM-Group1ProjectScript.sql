@@ -707,18 +707,31 @@ INSERT INTO ProductAllergy (PRODUCT_ALLERGY_CONTENT, PRODUCT_ALLERGY_DISCLAIMER,
 ('Wheat',               'Contains gluten',                                      1,  10);
 
 
--- Review (depends on Customer, Product)
-CREATE TABLE Review (
-    REVIEW_ID       INT             AUTO_INCREMENT PRIMARY KEY,
-    REVIEW_RATING   INT             NOT NULL,
-    REVIEW_COMMENT  VARCHAR(500),
-    REVIEW_DATE     DATE            NOT NULL,
-    CUSTOMER_ID     INT             NOT NULL,
-    PRODUCT_ID      INT             NOT NULL,
-    CONSTRAINT CHK_Rating CHECK (REVIEW_RATING BETWEEN 1 AND 5),
-    FOREIGN KEY (CUSTOMER_ID)   REFERENCES Customer(CUSTOMER_ID),
-    FOREIGN KEY (PRODUCT_ID)    REFERENCES Product(PRODUCT_ID)
-);
+
+-- ReviEW TABLE
+INSERT INTO Review (REVIEW_RATING, REVIEW_COMMENT, REVIEW_DATE, CUSTOMER_ID, PRODUCT_ID) VALUES
+
+(5, 'Absolutely amazing cake!', '2025-02-01', 1, 2),
+(5, 'Best cake I’ve had', '2025-02-02', 2, 2),
+(4, 'Really rich and good', '2025-02-03', 3, 2),
+
+(5, 'Perfectly flaky', '2025-02-04', 4, 3),
+(4, 'Very fresh and buttery', '2025-02-05', 5, 3),
+
+(5, 'Loved the tart!', '2025-02-06', 6, 8),
+(4, 'Great flavor', '2025-02-07', 7, 8),
+
+(2, 'Too hard', '2025-02-08', 8, 1),
+(1, 'Did not like it', '2025-02-09', 9, 1),
+
+(2, 'Too salty', '2025-02-10', 10, 6),
+(3, 'Average at best', '2025-02-11', 1, 6),
+
+(1, 'Not my taste', '2025-02-12', 2, 7),
+(2, 'Too dense', '2025-02-13', 3, 7),
+
+(3, 'Okay cookie', '2025-02-14', 4, 5),
+(4, 'Pretty good', '2025-02-15', 5, 5);
 
 
 -- SalesReport
