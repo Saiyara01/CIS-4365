@@ -584,6 +584,9 @@ INSERT INTO `Order` (ORDER_DATE, ORDER_TIME, ORDER_TOTAL, CUSTOMER_ID, CHANNEL_I
 ('2025-01-25',  '11:00:00',     29.00,  10, 2,  5),
 ('2025-02-01',  '08:30:00',     41.00,  1,  1,  5),
 ('2025-02-14',  '10:15:00',     88.00,  2,  3,  5),
+('2025-02-11',  '12:00:00',     30.00,  1,  1,  5),
+('2025-02-12',  '13:00:00',     25.00,  2,  1,  5),
+('2025-02-13',  '14:00:00',     40.00,  3,  2,  5);
 ('2025-02-20',  '14:00:00',     33.50,  3,  1,  5);
 
 
@@ -708,7 +711,7 @@ INSERT INTO ProductAllergy (PRODUCT_ALLERGY_CONTENT, PRODUCT_ALLERGY_DISCLAIMER,
 
 
 
--- ReviEW TABLE
+-- Review TABLE
 INSERT INTO Review (REVIEW_RATING, REVIEW_COMMENT, REVIEW_DATE, CUSTOMER_ID, PRODUCT_ID) VALUES
 
 (5, 'Absolutely amazing cake!', '2025-02-01', 1, 2),
@@ -787,18 +790,24 @@ INSERT INTO SupplierInvoice (SUP_INVOICE_DATE, SUP_INVOICE_TOTAL, SUP_INVOICE_ST
 ('2025-02-15',  1600.00,    'Unpaid',   7);
 
 
--- WasteLog (depends on Ingredient, Supplier)
-INSERT INTO WasteLog (WASTE_DATE, WASTE_QUANTITY, WASTE_REASON, INGREDIENT_ID, SUPPLIER_ID) VALUES
-('2025-01-05',  2.50,   'Expired before use',           3,  2),
-('2025-01-12',  1.00,   'Damaged packaging on delivery',1,  1),
-('2025-01-18',  0.50,   'Expired before use',           7,  2),
-('2025-01-25',  3.00,   'Overstock spoilage',           3,  NULL),
-('2025-02-02',  0.75,   'Expired before use',           8,  9),
-('2025-02-10',  1.50,   'Damaged packaging on delivery',2,  2),
-('2025-02-14',  2.00,   'Overstock spoilage',           4,  NULL),
-('2025-02-20',  0.25,   'Expired before use',           6,  4),
-('2025-03-01',  1.00,   'Damaged packaging on delivery',5,  5),
-('2025-03-05',  0.50,   'Overstock spoilage',           9,  NULL);
+-- WasteLog (depends on Ingredient)
+INSERT INTO WasteLog (WASTE_DATE, WASTE_QUANTITY, WASTE_REASON, INGREDIENT_ID) VALUES
+('2025-01-05',  87.00,   'Expired before use',           3),
+('2025-01-12',  1.00,    'Damaged packaging on delivery',1),
+('2025-01-18',  0.50,    'Expired before use',           7),
+('2025-01-25',  80.00,   'Overstock spoilage',           3),
+('2025-02-02',  0.75,    'Expired before use',           8),
+('2025-02-10',  1.50,    'Damaged packaging on delivery',2),
+('2025-02-14',  2.00,    'Overstock spoilage',           4),
+('2025-02-20',  0.25,    'Expired before use',           6),
+('2025-03-01',  1.00,    'Damaged packaging on delivery',5),
+('2025-03-05',  0.50,    'Overstock spoilage',           9)
+('2025-03-10',  55.50,   'Expired before use',           3),
+('2025-03-12',  38.00,   'Overstock spoilage',           1),
+('2025-03-15',  69.75,   'Damaged delivery',             7),
+('2025-03-18',  40.25,   'Expired before use',           4),
+('2025-03-20',  70.00,   'Overstock spoilage',           3);
+
 
 
 -- OrderAssignment (depends on Order, Employee)
@@ -951,9 +960,10 @@ INSERT INTO OrderLine (ORDERLINE_QUANTITY, ORDERLINE_PRICE, ORDER_ID, PRODUCT_ID
 (1,     12.00,  17, 7),
 (2,     4.50,   17, 3),
 
--- Order 18: Emily Johnson, In-Store (total 41.00)
+-- Order 18
 (1,     32.00,  18, 2),
 (3,     3.00,   18, 5),
+
 
 -- Order 19: Michael Chen, Delivery (total 88.00)
 (1,     45.00,  19, 10),
